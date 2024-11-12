@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_e_commerce_mobile/widgets/left_drawer.dart';
 
 class ProductFormPage extends StatefulWidget {
   const ProductFormPage({super.key});
@@ -24,6 +25,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
         foregroundColor: Colors.white,
       ),
 
+      drawer: const LeftDrawer(),
+
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -36,6 +39,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     hintText: 'Enter product name',
                     labelText: 'Name',
@@ -59,6 +71,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     hintText: 'Enter product price',
                     labelText: 'Price',
@@ -85,6 +106,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     hintText: 'Enter product description',
                     labelText: 'Description',

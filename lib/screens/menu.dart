@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_e_commerce_mobile/screens/formProductPage.dart';
+import 'package:my_e_commerce_mobile/widgets/item_card.dart';
+import 'package:my_e_commerce_mobile/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -22,7 +23,10 @@ class MyHomePage extends StatelessWidget {
           )
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
       ),
+
+      drawer: const LeftDrawer(),
 
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -61,64 +65,6 @@ class MyHomePage extends StatelessWidget {
           ],
         )
       )
-    );
-  }
-}
-
-class ItemHomePage {
-  final String name;
-  final IconData icon;
-  final Color color;
-
-  ItemHomePage(this.name, this.icon, this.color);
-}
-
-class ItemCard extends StatelessWidget {
-  final ItemHomePage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      borderRadius: BorderRadius.circular(12),
-
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(SnackBar(content: Text("Kamu telah menekan tombol ${item.name}")));
-          if (item.name == "Tambah Produk") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ProductFormPage()
-              )
-            );
-          }
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.black,
-                  size: 30.0
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.black)
-                )
-              ],
-            )
-          )
-        ),
-      ),
     );
   }
 }
