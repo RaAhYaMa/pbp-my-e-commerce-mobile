@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_e_commerce_mobile/screens/formProductPage.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -88,6 +89,14 @@ class ItemCard extends StatelessWidget {
           ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(SnackBar(content: Text("Kamu telah menekan tombol ${item.name}")));
+          if (item.name == "Tambah Produk") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProductFormPage()
+              )
+            );
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(8),

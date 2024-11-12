@@ -34,9 +34,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 padding: const EdgeInsets.all(16),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     hintText: 'Enter product name',
-                    labelText: 'Name'
+                    labelText: 'Name',
                   ),
                   onChanged: (String? value) {
                     setState(() {
@@ -55,9 +57,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 padding: const EdgeInsets.all(16),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     hintText: 'Enter product price',
-                    labelText: 'Price'
+                    labelText: 'Price',
                   ),
                   onChanged: (String? value) {
                     setState(() {
@@ -79,9 +83,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 padding: const EdgeInsets.all(16),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     hintText: 'Enter product description',
-                    labelText: 'Description'
+                    labelText: 'Description',
                   ),
                   onChanged: (String? value) {
                     setState(() {
@@ -101,6 +107,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         showDialog(
@@ -134,9 +145,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     },
                     child: const Text(
                       'Submit',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     ),
-                  )
+                  ),
                 ),
               ),
             ],
