@@ -99,9 +99,6 @@ class _LoginPageState extends State<LoginPage> {
                       String password = _passwordController.text;
 
                       // Cek kredensial
-                      // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-                      // Untuk menyambungkan Android emulator dengan Django pada localhost,
-                      // gunakan URL http://10.0.2.2/
                       final response = await request
                           .login("http://127.0.0.1:8000/auth/login/", {
                         'username': username,
@@ -147,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      minimumSize: Size(double.infinity, 50),
+                      minimumSize: const Size(double.infinity, 50),
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),

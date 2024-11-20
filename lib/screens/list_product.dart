@@ -3,6 +3,7 @@ import 'package:my_e_commerce_mobile/models/product_entry.dart';
 import 'package:my_e_commerce_mobile/widgets/left_drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:my_e_commerce_mobile/screens/product_entry.dart';
 
 class ProductEntryPage extends StatefulWidget {
   const ProductEntryPage({super.key});
@@ -57,25 +58,47 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
             else {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
-                itemBuilder: (_, index) => Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${snapshot.data![index].fields.name}",
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                itemBuilder: (_, index) => Card(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${snapshot.data![index].fields.name}",
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.price}"),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.description}"),
-                    ]
+                        const SizedBox(height: 10),
+                        Text(
+                          "${snapshot.data![index].fields.price}",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text("${snapshot.data![index].fields.description}"),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductDetailPage(
+                                  product: snapshot.data![index],
+                                ),
+                              ),
+                            );
+                          },
+                          child: const Text('Lihat Detail'),
+                        ),
+                      ]
+                    ),
                   ),
                 ),
               );
